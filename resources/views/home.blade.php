@@ -1,23 +1,26 @@
-@extends('layouts.app')
+<x-base-layout :scrollspy="false">
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+    <x-slot:pageTitle>
+        Example Title
+    </x-slot>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <x-slot:headerFiles>
+        <!--  BEGIN CUSTOM STYLE FILE  -->
 
-                    {{ __('You are logged in!') }}
-                </div>
-            </div>
-        </div>
+        <!--  END CUSTOM STYLE FILE  -->
+    </x-slot>
+    <!-- END GLOBAL MANDATORY STYLES -->
+
+    <div class="row layout-top-spacing">
+
+        <!-- CONTENT HERE -->
+
     </div>
-</div>
-@endsection
+
+    <!--  BEGIN CUSTOM SCRIPTS FILE  -->
+    <x-slot:footerFiles>
+
+    </x-slot>
+    <!--  END CUSTOM SCRIPTS FILE  -->
+</x-base-layout>
