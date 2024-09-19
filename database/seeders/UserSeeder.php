@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Permission;
 use App\Models\Role;
 use App\Models\User;
+use App\Models\Vendor;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -82,6 +83,8 @@ class UserSeeder extends Seeder
             ],
         ];
 
+        $idNewUserVendor = null;
+
         foreach ($users as $user) {
             $newUser = User::create([
                 'name' => $user['name'],
@@ -92,9 +95,24 @@ class UserSeeder extends Seeder
             $newUser->givePermissionTo($user['permission']);
             $newUser->save();
 
+            if ($user['email'] == 'vendor1@mail.dev') $idNewUserVendor = $newUser->id;
 
             sleep(1);
         }
+
+        $requestVendor = [
+            'name' => 'PT Syarif',
+            'telephone' => '0819819301',
+            'business_field' => 'Kesehatan dan Farmasi',
+            'npwp' => '123456781234567',
+            'address' => 'Alamat perusahaan',
+            'website' => 'www.google.com',
+            'description' => 'Perusahaan bergerak pada bidang kesehatan',
+            'status' => config('general.vendor_status.accepted'),
+            'user_id' => $idNewUserVendor,
+        ];
+
+        Vendor::create($requestVendor);
 
         $this->command->info('Create users by running the seeder successfully');
     }

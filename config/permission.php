@@ -13,7 +13,7 @@ return [
          * `Spatie\Permission\Contracts\Permission` contract.
          */
 
-        'permission' => Spatie\Permission\Models\Permission::class,
+        'permission' => App\Models\Permission::class,
 
         /*
          * When using the "HasRoles" trait from this package, we need to know which
@@ -24,7 +24,7 @@ return [
          * `Spatie\Permission\Contracts\Role` contract.
          */
 
-        'role' => Spatie\Permission\Models\Role::class,
+        'role' => App\Models\Role::class,
 
     ],
 
@@ -187,13 +187,14 @@ return [
     'list_roles' => [
         'superadmin' => [
             'menu_user', // Data Pengguna
+            'menu_review_vendor', // Data Review Vendor
             'menu_vendor', // Data Vendor
             'menu_product', // Data Product
             'menu_product_catalog', // Data Product Catalog
         ],
         'admin' => [
+            'menu_review_vendor', // Data Review Vendor
             'menu_vendor', // Data Vendor
-            'menu_product', // Data Product
             'menu_product_catalog', // Data Product Catalog
         ],
         'vendor' => [

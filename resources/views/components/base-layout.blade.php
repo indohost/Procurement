@@ -111,7 +111,6 @@
     */
 
     --}}
-
     @if (
         !Request::routeIs('404') &&
             !Request::routeIs('maintenance') &&
@@ -123,7 +122,7 @@
             // Real Logins
             !Request::routeIs('login'))
 
-        @if (!Request::routeIs('blank'))
+        @if (!Request::routeIs('blank') && !Request::routeIs('register'))
 
             @if (Request::is('modern-light-menu/*'))
                 <!--  BEGIN NAVBAR  -->
@@ -160,7 +159,7 @@
             <x-layout-overlay />
             <!--  END LOADER  -->
 
-            @if (!Request::routeIs('blank'))
+            @if (!Request::routeIs('blank') && !Request::routeIs('register'))
 
                 @if (Request::is('modern-light-menu/*'))
                     <!--  BEGIN SIDEBAR  -->
@@ -193,7 +192,7 @@
 
 
             <!--  BEGIN CONTENT AREA  -->
-            <div id="content" class="main-content {{ Request::routeIs('blank') ? 'ms-0 mt-0' : '' }}">
+            <div id="content" class="main-content {{ Request::routeIs('blank') || Request::routeIs('register') ? 'ms-0 mt-0' : '' }}">
 
                 @if ($scrollspy == 1)
                     <div class="container">
