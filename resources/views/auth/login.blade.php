@@ -45,9 +45,8 @@
                                         <div class="mb-3">
                                             <label class="form-label">Email</label>
                                             <input id="email" type="text"
-                                                class="form-control @error('email') is-invalid @enderror"
-                                                name="email" value="{{ old('email') }}" required
-                                                autocomplete="email" autofocus>
+                                                class="form-control @error('email') is-invalid @enderror" name="email"
+                                                value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                             @error('email')
                                                 <span class="invalid-feedback" role="alert">
@@ -74,6 +73,13 @@
                                     <div class="col-12">
                                         <div class="mb-4">
                                             <button class="btn btn-secondary w-100">MASUK KEDALAM APLIKASI</button>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <div class="text-center">
+                                            <p class="mb-0">Belum memiliki akun ? <a href="{{ route('register') }}"
+                                                    class="text-warning">Register</a></p>
                                         </div>
                                     </div>
                                 </form>
